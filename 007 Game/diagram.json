@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "mega", "top": 115.25, "left": 84.14, "attrs": {} },
+    { "type": "wokwi-7segment", "id": "sevseg1", "top": 241.98, "left": 629.4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 257.08,
+      "left": 392.75,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 256,
+      "left": 464.23,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 257.08,
+      "left": 536.8,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 75.88,
+      "left": 393,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 44.52,
+      "left": 333.57,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-74hc595", "id": "sr1", "top": 331.87, "left": 612.67, "attrs": {} }
+  ],
+  "connections": [
+    [ "mega:GND.1", "led1:C", "black", [ "v-18.6", "h247.27" ] ],
+    [ "lcd1:GND", "led1:C", "black", [ "h0" ] ],
+    [ "mega:5V", "sr1:VCC", "red", [ "v0" ] ],
+    [ "sr1:VCC", "sevseg1:COM.1", "red", [ "v-8.53", "h36.5" ] ],
+    [ "mega:GND.2", "sr1:GND", "black", [ "v75.89", "h527.1" ] ],
+    [
+      "sr1:Q1",
+      "sevseg1:A",
+      "green",
+      [ "v10.56", "h-14.72", "v-62.96", "h18.14", "v-76.84", "h40.55" ]
+    ],
+    [ "sr1:Q2", "sevseg1:B", "green", [ "v22.3", "h66.39", "v-150.47", "h-21.34" ] ],
+    [ "sr1:Q3", "sevseg1:C", "green", [ "v28.71", "h63.19", "v-68.3", "h-37.35" ] ],
+    [ "sr1:Q4", "sevseg1:D", "green", [ "v36.18", "h-39.25", "v-77.9", "h39.48" ] ],
+    [ "sr1:Q5", "sevseg1:E", "green", [ "v42.58", "h-62.73", "v-90.71" ] ],
+    [ "sr1:Q6", "sevseg1:F", "green", [ "v32.97", "h39.72", "v-167.54", "h-62.96" ] ],
+    [ "sr1:Q7", "sevseg1:G", "green", [ "v37.24", "h37.59", "v-176.08", "h-82.17" ] ],
+    [ "mega:GND.2", "sr1:OE", "black", [ "v25.73", "h487.62" ] ],
+    [ "mega:A0", "sr1:DS", "orange", [ "v0" ] ],
+    [ "mega:A1", "sr1:STCP", "blue", [ "v0" ] ],
+    [ "mega:A2", "sr1:SHCP", "violet", [ "v0" ] ],
+    [ "mega:GND.2", "btn1:2.l", "black", [ "v49.21", "h245.37" ] ],
+    [ "mega:GND.2", "btn2:2.l", "black", [ "v49.21", "h315.81" ] ],
+    [ "mega:GND.2", "btn3:2.l", "black", [ "v49.21", "h381.97" ] ],
+    [ "mega:20", "lcd1:SDA", "yellow", [ "v-11.13", "h76.68", "v16.01" ] ],
+    [ "mega:21", "lcd1:SCL", "cyan", [ "v-12.2", "h68.25", "v24.54" ] ],
+    [ "led1:A", "mega:5", "red", [ "v9.44", "h-168.15" ] ],
+    [ "btn3:1.l", "mega:4", "green", [ "h-6.29", "v-47.13", "h-146.37", "v-121.61", "h-181.88" ] ],
+    [ "btn2:1.l", "mega:3", "blue", [ "h-3.68", "v-51.43", "h-74.26", "v-114.08", "h-174.35" ] ],
+    [ "btn1:1.l", "mega:2", "orange", [ "h-4.3", "v-162.28", "h-165.74" ] ],
+    [ "lcd1:SDA", "mega:A4", "green", [ "h-37.96", "v202.61", "h-31.19" ] ],
+    [ "lcd1:SCL", "mega:A5", "red", [ "h-24.82", "v204.6", "h-31.19" ] ],
+    [ "lcd1:VCC", "mega:5V", "red", [ "h-24.82", "v230.17", "h-128.06" ] ]
+  ],
+  "dependencies": {}
+}
